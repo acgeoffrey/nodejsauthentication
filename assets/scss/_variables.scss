@@ -1,0 +1,59 @@
+$background-color: #fffbe2;
+$font: 'Quicksand', sans-serif;
+
+@mixin flex($justify-content) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: center;
+}
+
+@mixin centerPosition() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin inputField() {
+  width: 35rem;
+  height: 4rem;
+  margin-bottom: 1.5rem;
+  outline: none;
+  font-family: $font;
+  padding: 1rem;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+@mixin button() {
+  font-family: $font;
+  width: 35rem;
+  height: 4rem;
+  background-color: #ffcc53;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+@mixin googleBtn() {
+  width: 15rem;
+  height: 3rem;
+  background-color: #ffcb5300;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  outline: none;
+  cursor: pointer;
+  font-family: $font;
+  font-size: 1.6rem;
+  @include flex(center);
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.hidden {
+  display: none;
+}

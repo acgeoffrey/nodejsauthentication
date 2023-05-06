@@ -1,0 +1,29 @@
+@import './variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  background-color: $background-color;
+  font-family: $font;
+}
+
+header {
+  height: 8rem;
+  padding: 3rem 5rem;
+}
+
+@import './signin';
+
+.noty_layout {
+  font-size: 1.6rem;
+}

@@ -1,0 +1,38 @@
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+  function onSubmit(token) {
+    document.getElementById("signup-form").submit();
+  }
+</script>
+
+<div class="main-div" id="signup-div">
+
+
+  <h1>Register</h1>
+  <div class="main-form-div" id="signup-form-div">
+
+    <form action="/create" method="POST" id="signup-form">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="New Password" required>
+      <input type="password" name="confirm_password" placeholder="Confirm Password" required> <br>
+      <button class="g-recaptcha btn login-btn" data-sitekey="6Le4CuklAAAAAEZdqvEcyrrhyUpSza6FYsNIzlQl"
+        data-callback="onSubmit" type="submit">Sign up</button>
+    </form>
+  </div>
+
+  <div class="google-signin-div">
+
+    <p>&mdash; Or Sign in with &mdash;</p>
+
+    <button onclick="location.href='/auth/google'" class="google-btn"><i class="fa-brands fa-google"></i>
+      <p><strong>Google</strong></p>
+    </button>
+
+    <p>Already have an account? <a href="/signin">Login</a> </p>
+  </div>
+</div>
+
+<div id="svg-bg">
+  <img src="/images/signup.svg" alt="">
+</div>

@@ -1,0 +1,32 @@
+<div class="main-div" id="login-div">
+  <h1>Login</h1>
+
+  <div class="main-form-div" id="login-form-div">
+
+    <form action="/create-session" method="POST" id="signin-form-data">
+      <input type="email" name="email" placeholder="Enter Email" required> <br>
+      <input type="password" name="password" placeholder="Password" required> <br>
+      <a href="/forget-password">
+        <p>Having trouble in sign in?</p>
+      </a>
+      <button class="g-recaptcha btn login-btn" data-sitekey="6Le4CuklAAAAAEZdqvEcyrrhyUpSza6FYsNIzlQl"
+        data-callback="onSubmit" data-badge="bottomright" type="submit">Sign in</button>
+
+    </form>
+  </div>
+
+
+  <div class="google-signin-div">
+    <p>&mdash; Or Sign in with &mdash;</p>
+
+    <button onclick="location.href='/auth/google'" class="google-btn"><i class="fa-brands fa-google"></i>
+      <p><strong>Google</strong></p>
+    </button>
+
+    <p>New User? <a href="/signup">Register</a> </p>
+  </div>
+
+</div>
+<div id="svg-bg">
+  <img src="/images/login.svg" alt="">
+</div>
