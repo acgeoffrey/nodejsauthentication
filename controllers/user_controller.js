@@ -5,7 +5,7 @@ const env = require('../config/environment');
 const TOKEN_SECRET = env.jwt_secret;
 const mailer = require('../mailer/mailer');
 
-//render the dashboard
+/*** Render the Dashboard ***/
 module.exports.dashboard = async function (req, res) {
   // const user = await User.findById(req.params.id);
   if (req.isAuthenticated()) {
@@ -17,7 +17,7 @@ module.exports.dashboard = async function (req, res) {
   }
 };
 
-//render the sign in page
+/*** Render the Signin page ***/
 module.exports.signIn = function (req, res) {
   if (req.isAuthenticated()) {
     return res.redirect('/dashboard');
@@ -28,14 +28,14 @@ module.exports.signIn = function (req, res) {
   });
 };
 
-//render the sign up page
+/*** Render the Signup page ***/
 module.exports.signUp = function (req, res) {
   return res.render('signup', {
     title: 'NodeJS Authentication | Sign Up',
   });
 };
 
-//sign up and create user
+/*** Signup User ***/
 module.exports.create = async (req, res) => {
   if (req.body.password != req.body.confirm_password) {
     req.flash('error', "Passwords doesn't match!");
@@ -50,6 +50,8 @@ module.exports.create = async (req, res) => {
       req.flash('error', 'Email already exits!');
       return res.redirect('back');
     } else {
+      /*** Using JSON Web Token for creating verification token ***/
+
       const token = jwt.sign({ name, email, password }, TOKEN_SECRET, {
         expiresIn: '10m',
       });
@@ -60,7 +62,8 @@ module.exports.create = async (req, res) => {
   }
 };
 
-//account verification
+/*** Account Verification and Creating user in the database ***/
+
 module.exports.accountVerification = async (req, res) => {
   if (req.params.token) {
     jwt.verify(req.params.token, TOKEN_SECRET, async (err, decryptedData) => {
@@ -76,6 +79,7 @@ module.exports.accountVerification = async (req, res) => {
         return res.redirect('/signin');
       }
 
+      //Encrypting the password using bcrypt
       const salt = await bcrypt.genSalt();
       const hashedPassword = await bcrypt.hash(password, salt);
 
@@ -90,7 +94,7 @@ module.exports.accountVerification = async (req, res) => {
   }
 };
 
-//forget password
+/*** Sending Password Reset Link ***/
 module.exports.forgetPassword = async (req, res) => {
   try {
     const email = req.body.email;
@@ -110,7 +114,7 @@ module.exports.forgetPassword = async (req, res) => {
   }
 };
 
-//reset password
+/*** Verify Password Reset Link and redirecting to Password Reset Page ***/
 module.exports.resetPasswordToken = async (req, res) => {
   try {
     if (req.params.token) {
@@ -134,6 +138,7 @@ module.exports.resetPasswordToken = async (req, res) => {
   }
 };
 
+/*** Password Reset Controller ***/
 module.exports.resetPassword = async (req, res) => {
   if (req.body.password != req.body.confirm_password) {
     req.flash('error', "Passwords doesn't match!");
@@ -153,13 +158,13 @@ module.exports.resetPassword = async (req, res) => {
   }
 };
 
-//sign in and create a session for the user
+/*** Signin and Create a session for the user ***/
 module.exports.createSession = function (req, res) {
   req.flash('success', 'Logged in Successfully');
   return res.redirect('/dashboard');
 };
 
-//sign out the user
+/*** Signout the user ***/
 module.exports.destroySession = function (req, res) {
   req.logout(function (err) {
     if (err) {

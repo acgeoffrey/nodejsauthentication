@@ -1,6 +1,7 @@
 const nodemailer = require('../config/nodemailer');
 const env = require('../config/environment');
 
+/*** Mail Template for Account Verification email ***/
 exports.accountVerification = (req, res, token) => {
   const html = `
   <h2>Activate your account</h2>
@@ -26,6 +27,7 @@ exports.accountVerification = (req, res, token) => {
   );
 };
 
+/*** Mail Template for Reset Password Link ***/
 exports.resetPassword = (req, res, token) => {
   const html = `
   <h2>Reset your Account Password</h2>

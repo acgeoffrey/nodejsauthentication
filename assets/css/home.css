@@ -18,6 +18,10 @@ body {
   background-color: #fffbe2;
   font-family: "Quicksand", sans-serif;
 }
+body a {
+  text-decoration: none;
+  color: black;
+}
 
 header {
   height: 8rem;
