@@ -7,7 +7,8 @@
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass-watch": "sass --no-source-map --watch assets/scss:assets/css",
-    "dev": "npm-run-all --parallel sass-watch start"
+    "dev": "npm-run-all --parallel sass-watch start",
+    "prod_start": "SET NODE_ENV=production& nodemon index.js"
   },
   "author": "Geoffrey",
   "license": "ISC",
