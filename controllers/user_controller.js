@@ -50,7 +50,7 @@ module.exports.create = async (req, res) => {
       req.flash('error', 'Email already exits!');
       return res.redirect('back');
     } else {
-      /*** Using JSON Web Token for creating verification token ***/
+      ///Using JSON Web Token for creating verification token
 
       const token = jwt.sign({ name, email, password }, TOKEN_SECRET, {
         expiresIn: '10m',
@@ -66,6 +66,7 @@ module.exports.create = async (req, res) => {
 
 module.exports.accountVerification = async (req, res) => {
   if (req.params.token) {
+    ///Verifying the json web token
     jwt.verify(req.params.token, TOKEN_SECRET, async (err, decryptedData) => {
       if (err) {
         req.flash('error', 'Invalid or Expired Link!');
@@ -79,6 +80,7 @@ module.exports.accountVerification = async (req, res) => {
         return res.redirect('/signin');
       }
 
+      // If email not found in database already, create a new user
       //Encrypting the password using bcrypt
       const salt = await bcrypt.genSalt();
       const hashedPassword = await bcrypt.hash(password, salt);
@@ -100,6 +102,7 @@ module.exports.forgetPassword = async (req, res) => {
     const email = req.body.email;
     const user = await User.findOne({ email: email });
     if (user) {
+      /// creating jwt token for resetting password
       const token = jwt.sign({ email }, TOKEN_SECRET, {
         expiresIn: '10m',
       });
