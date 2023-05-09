@@ -1,4 +1,9 @@
 <script>
+  $('#signin-form-data').submit(function (event) {
+    event.preventDefault();
+    grecaptcha.reset();
+    grecaptcha.execute();
+  });
   function onSubmit(token) {
     document.getElementById("signin-form-data").submit();
   }
@@ -9,14 +14,15 @@
   <div class="main-form-div" id="login-form-div">
 
     <form action="/create-session" method="POST" id="signin-form-data">
-      <input type="email" name="email" placeholder="Enter Email" required> <br>
+      <input type="email" name="email" id="email" placeholder="Enter Email" required> <br>
       <input type="password" name="password" placeholder="Password" required> <br>
       <a href="/forget-password">
         <p>Having trouble in sign in?</p>
       </a>
-      <button class="g-recaptcha btn login-btn" data-sitekey='6Le4CuklAAAAAEZdqvEcyrrhyUpSza6FYsNIzlQl'
-        data-callback="onSubmit" data-badge="bottomright" type="submit">Sign in</button>
-
+      <div class="g-recaptcha" data-sitekey="6Le4CuklAAAAAEZdqvEcyrrhyUpSza6FYsNIzlQl" data-callback="onSubmit"
+        data-size="invisible">
+      </div>
+      <button class="btn login-btn" type="submit">Sign in</button>
     </form>
   </div>
 
