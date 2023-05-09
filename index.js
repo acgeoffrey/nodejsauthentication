@@ -1,7 +1,7 @@
 //Setting up express
 const express = require('express');
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 3000;
 
 const env = require('./config/environment');
 

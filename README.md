@@ -45,7 +45,7 @@ NodeJS Authentication App.
 - Get client id, secret and email for implementing Google authentication and Nodemailer and store those in the environment variables.
 - Also define jwt secret key, session secret key, assets folder location, mongodb name in the environment variables.
 - "npm start" (or) "npm run dev" if you need to compile sass files.
-- Server should run on "http://127.0.0.1:8000/".
+- Server should run on "http://localhost:8000/".
 
 ## Folder Structure
 

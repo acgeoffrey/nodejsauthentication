@@ -52,6 +52,10 @@ $font: 'Quicksand', sans-serif;
   @include flex(center);
   gap: 1rem;
   margin-bottom: 3rem;
+  img {
+    height: 2rem;
+    width: 2rem;
+  }
 }
 
 .hidden {

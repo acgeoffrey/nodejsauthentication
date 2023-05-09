@@ -135,6 +135,10 @@ header {
   gap: 1rem;
   margin-bottom: 3rem;
 }
+.google-btn img {
+  height: 2rem;
+  width: 2rem;
+}
 
 #svg-bg img {
   position: fixed;
