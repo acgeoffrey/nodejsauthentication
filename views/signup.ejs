@@ -1,11 +1,11 @@
 <script>
-  $('#signup-form-data').submit(function (event) {
+  $('#signup-form').submit(function (event) {
     event.preventDefault();
     grecaptcha.reset();
     grecaptcha.execute();
   });
   function onSubmit(token) {
-    document.getElementById("signup-form-data").submit();
+    document.getElementById("signup-form").submit();
   }
 </script>
 
