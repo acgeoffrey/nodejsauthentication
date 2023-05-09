@@ -22,6 +22,10 @@ exports.accountVerification = (req, res, token) => {
         console.log('Error in sending mail', err);
         return res.redirect('/signin');
       }
+      req.flash(
+        'success',
+        'Activation link has been sent to your email successfully!'
+      );
       return res.redirect('/signin');
     }
   );
@@ -48,6 +52,10 @@ exports.resetPassword = (req, res, token) => {
         console.log('Error in sending mail', err);
         return res.redirect('/signin');
       }
+      req.flash(
+        'success',
+        'Verification link has been sent to your email successfully!'
+      );
       return res.redirect('/signin');
     }
   );
