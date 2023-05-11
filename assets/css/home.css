@@ -149,6 +149,23 @@ header {
   width: 25vw;
 }
 
+.fa-eye,
+.fa-eye-slash {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.pass-div {
+  position: relative;
+}
+
+.pass-eye,
+.pass-eye2 {
+  position: absolute;
+  top: 25%;
+  right: 5%;
+}
+
 .noty_layout {
   font-size: 1.6rem;
 }

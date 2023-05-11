@@ -15,7 +15,10 @@
 
     <form action="/create-session" method="POST" id="signin-form-data">
       <input type="email" name="email" id="email" placeholder="Enter Email" required> <br>
-      <input type="password" name="password" placeholder="Password" required> <br>
+      <div class="pass-div">
+        <input type="password" name="password" placeholder="Password" class="toggle-visibility" required>
+        <i class="fa-solid fa-eye pass-eye"></i>
+      </div>
       <a href="/forget-password">
         <p>Having trouble in sign in?</p>
       </a>

@@ -18,8 +18,17 @@
     <form action="/create" method="POST" id="signup-form">
       <input type="text" name="name" placeholder="Name" required>
       <input type="email" name="email" placeholder="Email" required>
-      <input type="password" name="password" placeholder="New Password" required>
-      <input type="password" name="confirm_password" placeholder="Confirm Password" required> <br>
+
+      <div class="pass-div">
+        <input type="password" name="password" placeholder="Enter Password" class="toggle-visibility" required>
+        <i class="fa-solid fa-eye pass-eye"></i>
+      </div>
+      <div class="pass-div">
+        <input type="password" name="confirm_password" placeholder="Confirm Password" class="toggle-visibility2"
+          required>
+        <i class="fa-solid fa-eye pass-eye2"></i>
+      </div>
+
       <div class="g-recaptcha" data-sitekey="6Le4CuklAAAAAEZdqvEcyrrhyUpSza6FYsNIzlQl" data-callback="onSubmit"
         data-size="invisible">
       </div>
